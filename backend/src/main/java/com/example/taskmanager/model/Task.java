@@ -17,17 +17,20 @@ public class Task {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    // Constructors, getters, and setters
 
-    public Task() {
-    }
+    // Default Constructor
+    public Task() {}
 
+    // Constructor
     public Task(String title, String description, String status, User user) {
         this.title = title;
         this.description = description;
         this.status = status;
         this.user = user;
     }
+
+
+    // Getters and Setters
 
     public Long getId() {
         return id;

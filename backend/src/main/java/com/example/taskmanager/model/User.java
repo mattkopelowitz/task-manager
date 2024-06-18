@@ -20,15 +20,18 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Task> tasks;
 
-    // Constructors, getters, and setters
 
-    public User() {
-    }
+    // Default Constructor
+    public User() {}
 
+    // Constructor
     public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
+
+    
+    // Getters and Setters
 
     public Long getId() {
         return id;
