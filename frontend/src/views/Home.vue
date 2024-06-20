@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 v-if="user">Welcome, {{ user.username }}</h1>
+    <h1 v-if="user">Welcome, {{ user.username.toUpperCase() }}</h1>
     <TaskList v-if="user" />
   </div>
 </template>

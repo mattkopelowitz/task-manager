@@ -2,9 +2,10 @@
     <div>
       <form @submit.prevent="handleSubmit">
         <div>
-          <label>Title</label>
+          <label>Title </label>
           <input v-model="form.title" type="text" required>
-          <label>Description</label>
+          <br>
+          <label>Description </label>
           <input v-model="form.description" type="text" required>
         </div>
         <button type="submit">Add Task</button>

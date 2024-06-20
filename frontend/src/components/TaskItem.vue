@@ -1,7 +1,8 @@
 <template>
     <div>
-      <p>{{ task.description }} - {{ task.completed ? 'Completed' : 'Pending' }}</p>
-      <button @click="toggleComplete">{{ task.completed ? 'Mark as Pending' : 'Mark as Completed' }}</button>
+      <h3>{{ task.title }}</h3>
+      <p>{{ task.description }}</p>
+      <button @click="toggleComplete">Mark as Completed</button>
       <button @click="deleteTask">Delete</button>
     </div>
   </template>
