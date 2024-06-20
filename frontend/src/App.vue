@@ -1,23 +1,30 @@
 <template>
   <div id="app">
     <nav v-if="!isLoggedIn">
-      <!-- <router-link to="/">Home</router-link> -->
-      <!-- <router-link to="/tasks">Tasks</router-link> -->
       <router-link to="/login">Login</router-link>
       <router-link to="/register">Register</router-link>
     </nav>
+    <nav v-if="isLoggedIn">
+      <button @click="handleLogout">Logout</button>
+    </nav>
     <router-view />
-    <button v-if="isLoggedIn" >Logout</button>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   computed: {
-    ...mapState(['isLoggedIn'])
+    ...mapState(['user', 'isLoggedIn'])
   },
+  methods: {
+    ...mapActions(['logout']),
+    handleLogout() {
+      this.logout();
+      this.$router.push('/login');
+    }
+  }
 };
 </script>
 
@@ -37,4 +44,3 @@ nav a.router-link-active {
   font-weight: bold;
 }
 </style>
-

@@ -14,20 +14,20 @@ public class Task {
     private String description;
     private String status;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    // @ManyToOne(fetch = FetchType.LAZY)
+    // @JoinColumn(name = "user_id", nullable = false)
+    // private User user;
 
 
     // Default Constructor
     public Task() {}
 
     // Constructor
-    public Task(String title, String description, String status, User user) {
+    public Task(String title, String description, String status) {
         this.title = title;
         this.description = description;
         this.status = status;
-        this.user = user;
+        //this.user = user;
     }
 
 
@@ -65,11 +65,11 @@ public class Task {
         this.status = status;
     }
 
-    public User getUser() {
-        return user;
-    }
+    // public User getUser() {
+    //     return user;
+    // }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+    // public void setUser(User user) {
+    //     this.user = user;
+    // }
 }

@@ -33,6 +33,7 @@
                     password: this.password
                 });
                 localStorage.setItem('user', JSON.stringify(response.data));
+                localStorage.setItem('isLoggedIn', 'true');
                 this.$router.push('/');
             } catch (error) {
                 console.error('Failed to login', error.response.data);

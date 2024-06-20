@@ -9,24 +9,14 @@
         </div>
         <button type="submit">Add Task</button>
       </form>
-  
-      <!-- Conditional rendering of task list -->
-      <div v-if="!isFormSubmitted">
-        <h2>Task List</h2>
-        <TaskList />
-      </div>
     </div>
   </template>
   
   <script>
   import axios from 'axios';
   import { mapState } from 'vuex';
-  import TaskList from '@/components/TaskList.vue';
   
   export default {
-    components: {
-      TaskList
-    },
     computed: {
       ...mapState(['user']),
     },
@@ -36,7 +26,7 @@
           title: '',
           description: ''
         },
-        isFormSubmitted: false  // Flag to track form submission status
+        isFormSubmitted: false
       };
     },
     methods: {
@@ -46,12 +36,11 @@
             title: this.form.title,
             description: this.form.description,
             status: "Pending",
-            user: {
-              id: this.user.id
-            }
           });
+          this.form.title = '';
           this.form.description = '';
-          this.isFormSubmitted = true; // Set flag to true after successful submission
+          this.isFormSubmitted = true;
+          this.$emit('task-created');
         } catch (error) {
           console.error('Failed to create task', error);
         }

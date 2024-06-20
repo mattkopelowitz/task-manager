@@ -17,8 +17,8 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Task> tasks;
+    // @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    // private Set<Task> tasks;
 
 
     // Default Constructor
@@ -57,11 +57,11 @@ public class User {
         this.password = password;
     }
 
-    public Set<Task> getTasks() {
-        return tasks;
-    }
+    // public Set<Task> getTasks() {
+    //     return tasks;
+    // }
 
-    public void setTasks(Set<Task> tasks) {
-        this.tasks = tasks;
-    }
+    // public void setTasks(Set<Task> tasks) {
+    //     this.tasks = tasks;
+    // }
 }
