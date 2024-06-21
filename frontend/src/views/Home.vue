@@ -1,6 +1,10 @@
 <template>
   <div>
-    <h1 v-if="user">Welcome, {{ user.username }}</h1>
+    <div class="nav-bar" v-if="user">
+      <div class="logo">Task Manager</div>
+      <div class="welcome-message">Welcome, {{ user.username.toUpperCase() }}</div>
+      <div class="profile"></div>
+    </div>
     <TaskList v-if="user" />
   </div>
 </template>

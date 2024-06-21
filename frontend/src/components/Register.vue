@@ -1,17 +1,21 @@
 <template>
     <div>
-      <h2>Register</h2>
-      <form @submit.prevent="register">
-        <div>
-          <label>Username</label>
-          <input v-model="username" type="text" required>
-        </div>
-        <div>
-          <label>Password</label>
-          <input v-model="password" type="password" required>
-        </div>
-        <button type="submit">Register</button>
-      </form>
+      <div class="nav-bar">
+        <h2>Register</h2>
+      </div>
+      <div class="register-form">
+          <form @submit.prevent="register">
+          <div>
+            <label>Username</label>
+            <input v-model="username" type="text" required>
+          </div>
+          <div>
+            <label>Password</label>
+            <input v-model="password" type="password" required>
+          </div>
+          <button type="submit">Register</button>
+        </form>
+      </div>
     </div>
   </template>
   

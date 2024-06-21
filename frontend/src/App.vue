@@ -1,12 +1,15 @@
 <template>
   <div id="app">
-    <nav v-if="!isLoggedIn">
-      <router-link to="/login">Login</router-link>
-      <router-link to="/register">Register</router-link>
-    </nav>
-    <nav v-if="isLoggedIn">
-      <button @click="handleLogout">Logout</button>
-    </nav>
+    <div class="nav-bar">
+      <div class="logo"></div>
+      <div class="nav-links" v-if="!isLoggedIn">
+        <router-link to="/login" class="nav-button">Login</router-link>
+        <router-link to="/register" class="nav-button">Register</router-link>
+      </div>
+      <div class="profile" v-if="isLoggedIn">
+        <button class="logout-button" @click="handleLogout">Logout</button>
+      </div>
+    </div>
     <router-view />
   </div>
 </template>

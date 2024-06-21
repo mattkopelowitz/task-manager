@@ -1,7 +1,10 @@
 <template>
     <div>
-      <h2>Login</h2>
-      <form @submit.prevent="login">
+      <div class="nav-bar">
+        <h2>Login</h2>
+      </div>
+      <div class="login-form">
+        <form @submit.prevent="login">
         <div>
           <label>Username</label>
           <input v-model="username" type="text" required>
@@ -12,6 +15,7 @@
         </div>
         <button type="submit">Login</button>
       </form>
+      </div>
     </div>
   </template>
   
