@@ -6,6 +6,9 @@
     <div v-for="task in tasks" :key="task.id" class="task-item">
       <TaskItem :task="task" @task-updated="fetchTasks" @task-deleted="fetchTasks" />
     </div>
+    <div v-if="tasks.length == 0">
+      <p>All tasks completed!</p>
+    </div>
   </div>
 </template>
 

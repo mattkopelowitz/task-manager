@@ -64,7 +64,15 @@ body {
   }
   
   .task-list {
-    margin: 20px;
+    margin-left: 45%;
+  }
+
+  .task-list h2 {
+    text-align: center;
+  }
+
+  .task-list p {
+    text-align: left;
   }
   
   .task-card {
@@ -101,12 +109,14 @@ body {
     margin: 50 50 100;
     text-align: center;
     padding-top: 50px;
+    margin-left: 35%;
   }
 
   .register-form {
     margin: 50 50 100;
     text-align: center;
     padding-top: 50px;
+    margin-left: 35%;
   }
   
   .logout-button {
@@ -160,19 +170,6 @@ body {
     background-color: #0056b3;
   }
 
-  
-
-
-
-
-
-
-
-
-
-
-
-/* Style adjustments for the task form */
 form {
   background: white;
   border: 1px solid #ccc;
@@ -226,9 +223,8 @@ form button:hover {
   background-color: #0056b3;
 }
 
-/* Style adjustments for the task list and task items */
 .task-list {
-  width: 80%;
+  width: 20%;
   max-width: 800px;
 }
 

@@ -5,7 +5,6 @@
       <p>{{ task.description }}</p>
     </div>
     <div>
-      <button @click="toggleComplete" class="edit-button">Mark as Completed</button>
       <button @click="deleteTask" class="delete-button">Delete</button>
     </div>
   </div>
@@ -25,17 +24,6 @@ export default {
     }
   },
   methods: {
-    async toggleComplete() {
-      await axios.put(`http://localhost:8080/api/tasks/${this.task.id}`, {
-        ...this.task,
-        completed: !this.task.completed
-      }, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-      });
-      this.$emit('task-updated');
-    },
     async deleteTask() {
       await axios.delete(`http://localhost:8080/api/tasks/${this.task.id}`);
       this.$emit('task-deleted');

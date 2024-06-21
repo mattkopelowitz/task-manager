@@ -30,20 +30,3 @@ export default {
   }
 };
 </script>
-
-<style>
-nav {
-  padding: 10px;
-  background-color: #f8f9fa;
-}
-
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #007bff;
-}
-
-nav a.router-link-active {
-  font-weight: bold;
-}
-</style>

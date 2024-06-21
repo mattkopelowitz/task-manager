@@ -21,21 +21,10 @@ public class TaskController {
         return ResponseEntity.ok(newTask);
     }
 
-    // @GetMapping("/{id}")
-    // public Task getTaskById(@PathVariable Long id) {
-    //     return taskService.getTaskById(id);
-    // }
-
     @GetMapping
     public List<Task> getUserTasks(@RequestParam Long userId) {
         return taskService.getUserTasks(userId);
     }
-
-
-    // @PutMapping("/{id}")
-    // public Task updateTask(@PathVariable Long id, @RequestBody Task task) {
-    //     return taskService.updateTask(id, task);
-    // }
 
     @DeleteMapping("/{id}")
     public String deleteTask(@PathVariable Long id) {

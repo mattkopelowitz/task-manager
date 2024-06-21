@@ -27,11 +27,7 @@ export default createStore({
   actions: {
     async fetchTasks({ commit }) {
       try {
-        const response = await axios.get('http://localhost:8080/api/tasks', {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-          }
-        });
+        const response = await axios.get('http://localhost:8080/api/tasks');
         commit('setTasks', response.data);
       } catch (error) {
         console.error('Failed to fetch tasks', error);
@@ -39,11 +35,7 @@ export default createStore({
     },
     async createTask({ dispatch }, task) {
       try {
-        await axios.post('http://localhost:8080/api/tasks', task, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-          }
-        });
+        await axios.post('http://localhost:8080/api/tasks', task);
         dispatch('fetchTasks');
       } catch (error) {
         console.error('Failed to create task', error);
@@ -52,7 +44,6 @@ export default createStore({
     login({ commit }, user) {
       this.$store.commit('isLoggedIn', true);
       commit('isLoggedIn', true);
-      console.log(user);
       localStorage.setItem('user', JSON.stringify(user));
       commit('login', user);
     },

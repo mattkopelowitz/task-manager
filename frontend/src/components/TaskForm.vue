@@ -25,8 +25,7 @@ export default {
       form: {
         title: '',
         description: ''
-      },
-      isFormSubmitted: false
+      }
     };
   },
   methods: {
@@ -46,7 +45,6 @@ export default {
         });
         this.form.title = '';
         this.form.description = '';
-        this.isFormSubmitted = true;
         this.$emit('task-created');
       } catch (error) {
         console.error('Failed to create task', error);
