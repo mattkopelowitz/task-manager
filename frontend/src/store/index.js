@@ -52,6 +52,7 @@ export default createStore({
     login({ commit }, user) {
       this.$store.commit('isLoggedIn', true);
       commit('isLoggedIn', true);
+      console.log(user);
       localStorage.setItem('user', JSON.stringify(user));
       commit('login', user);
     },

@@ -1,7 +1,8 @@
 <template>
     <div>
-      <h2>Tasks</h2>
+      <h2>Create New Task</h2>
       <TaskForm @task-created="fetchTasks" />
+      <h2>Tasks</h2>
       <div v-for="task in tasks" :key="task.id">
         <TaskItem :task="task" @task-updated="fetchTasks" @task-deleted="fetchTasks" />
       </div>
@@ -14,7 +15,7 @@
   import TaskForm from './TaskForm.vue';
   
   export default {
-    components: {  TaskForm, TaskItem },
+    components: { TaskForm, TaskItem },
     data() {
       return {
         tasks: []
@@ -22,13 +23,15 @@
     },
     methods: {
       async fetchTasks() {
-        const response = await axios.get('http://localhost:8080/api/tasks', {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-          }
-        });
-        this.tasks = response.data;
-        console.log(this.tasks)
+        try {
+          const user = JSON.parse(localStorage.getItem('user'));
+          const response = await axios.get('http://localhost:8080/api/tasks', {
+            params: { userId: user.id }
+          });
+          this.tasks = response.data;
+        } catch (error) {
+          console.error('Failed to fetch tasks', error);
+        }
       }
     },
     created() {

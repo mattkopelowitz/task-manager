@@ -23,7 +23,6 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody User user) {
         User registeredUser = userService.findByUsername(user.getUsername());
-
         if (registeredUser == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
         }
@@ -32,7 +31,7 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
         }
         
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(registeredUser);
     }
 }
 

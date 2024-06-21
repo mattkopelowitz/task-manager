@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 v-if="user">Welcome, {{ user.username.toUpperCase() }}</h1>
+    <h1 v-if="user">Welcome, {{ user.username }}</h1>
     <TaskList v-if="user" />
   </div>
 </template>
@@ -15,8 +15,7 @@ export default {
   computed: {
     ...mapState(['user', 'isLoggedIn'])
   },
-  created() {
-    console.log(localStorage.getItem('isLoggedIn'));
+  created() {    
     if (localStorage.getItem('isLoggedIn')) {
       const user = JSON.parse(localStorage.getItem('user'));
       this.$store.commit('setUser', user);

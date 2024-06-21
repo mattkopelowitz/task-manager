@@ -33,10 +33,17 @@
     methods: {
       async handleSubmit() {
         try {
+          const user = JSON.parse(localStorage.getItem('user'));
           await axios.post('http://localhost:8080/api/tasks/createTask', {
             title: this.form.title,
             description: this.form.description,
             status: "Pending",
+            userId: user.id
+          }, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`
+            },
+            params: { userId: user.id }
           });
           this.form.title = '';
           this.form.description = '';
